@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.metanova.cashgoal.R
 import com.metanova.cashgoal.models.Meta
 import kotlinx.android.synthetic.main.item_meta.view.*
+import java.math.BigDecimal
 
 class MetaAdapter (var metas: List<Meta>) :
     RecyclerView.Adapter<MetaAdapter.ViewHolder>(){
@@ -18,6 +19,9 @@ class MetaAdapter (var metas: List<Meta>) :
 
         fun bindTo(tipoIngreso: Meta) {
             textView.text = tipoIngreso.nombre
+            val pct : BigDecimal = BigDecimal(100)
+            val progress : BigDecimal = tipoIngreso.ahorrado/tipoIngreso.monto * pct
+            progressBar.setProgress(progress.toInt())
         }
     }
 

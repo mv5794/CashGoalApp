@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.widget.TextView
 import com.metanova.cashgoal.R
 
-class MainActivity : AppCompatActivity() {
+class UsuarioActivity : AppCompatActivity() {
 
     private lateinit var textMessage: TextView
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -21,8 +21,8 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
             R.id.navigation_notifications -> {
-                textMessage.setText(R.string.title_notifications)
-                return@OnNavigationItemSelectedListener true
+                val intent = Intent(this, MetaActivity::class.java)
+                startActivity(intent)
             }
             R.id.navigation_perfil -> {
                 val intent = Intent(this, UsuarioActivity::class.java)
@@ -34,10 +34,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_usuario)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
-       // textMessage = findViewById(R.id.message)
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
     }
 }

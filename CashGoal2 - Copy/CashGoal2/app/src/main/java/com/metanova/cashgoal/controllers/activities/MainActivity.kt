@@ -6,8 +6,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.TextView
 import com.metanova.cashgoal.R
+import com.metanova.cashgoal.models.DetalleMonto
+import kotlinx.android.synthetic.main.activity_main.*
+import java.math.BigDecimal
 
-class CrearEgresoActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
+
+    var saldo: Double = 453.30
 
     private lateinit var textMessage: TextView
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -21,12 +26,12 @@ class CrearEgresoActivity : AppCompatActivity() {
                 startActivity(intent)
             }
             R.id.navigation_notifications -> {
-                textMessage.setText(R.string.title_notifications)
-                return@OnNavigationItemSelectedListener true
+                val intent = Intent(this, MetaActivity::class.java)
+                startActivity(intent)
             }
             R.id.navigation_perfil -> {
-                textMessage.setText(R.string.title_notifications)
-                return@OnNavigationItemSelectedListener true
+                val intent = Intent(this, UsuarioActivity::class.java)
+                startActivity(intent)
             }
         }
         false
@@ -34,9 +39,12 @@ class CrearEgresoActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_crear_egreso)
+        setContentView(R.layout.activity_main)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
+        val saldoText : String = "Saldo: S/. $saldo"
+        textViewSaldo.text = saldoText
 
+       // textMessage = findViewById(R.id.message)
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
     }
 }

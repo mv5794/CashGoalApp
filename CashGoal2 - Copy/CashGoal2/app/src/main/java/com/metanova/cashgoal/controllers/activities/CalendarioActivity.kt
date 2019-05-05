@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.activity_calendario.*
 
 class CalendarioActivity : AppCompatActivity() {
     var agregar_activo : Boolean = false
-
+    var saldo: Double = 453.30
 
     private lateinit var textMessage: TextView
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -25,8 +25,8 @@ class CalendarioActivity : AppCompatActivity() {
                 startActivity(intent)
             }
             R.id.navigation_notifications -> {
-                textMessage.setText(R.string.title_notifications)
-                return@OnNavigationItemSelectedListener true
+                val intent = Intent(this, MetaActivity::class.java)
+                startActivity(intent)
             }
             R.id.navigation_perfil -> {
                 val intent = Intent(this, UsuarioActivity::class.java)
@@ -42,6 +42,8 @@ class CalendarioActivity : AppCompatActivity() {
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
         buttonEgresos.visibility = View.GONE
         buttonIngresos.visibility = View.GONE
+        val saldoText : String = "Saldo: S/. $saldo"
+        textViewSaldo2.text = saldoText
 
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
         floatingActionButtonAgregar.setOnClickListener{
