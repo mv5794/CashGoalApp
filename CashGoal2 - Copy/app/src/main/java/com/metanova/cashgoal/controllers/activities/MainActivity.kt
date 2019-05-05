@@ -43,6 +43,7 @@ class MainActivity : AppCompatActivity() {
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
         val saldoText : String = "Saldo: S/. $saldo"
         textViewSaldo.text = saldoText
+        progressBar5.setProgress(25)
 
        // textMessage = findViewById(R.id.message)
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)

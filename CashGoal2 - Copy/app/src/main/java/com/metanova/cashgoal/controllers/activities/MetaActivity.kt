@@ -49,7 +49,7 @@ class MetaActivity : AppCompatActivity() {
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
         val meta1: Meta = Meta( Usuario("a","a","a","a"), TipoMeta("herramienta","para la uni"), BigDecimal(1500), BigDecimal(200),"Laptop para la universidad","PEN", "Laptop")
-        progressBar2.setProgress(meta1.ahorrado.toInt()/meta1.monto.toInt()*100)
+        progressBar2.setProgress(25)
         progressBar2.max = meta1.monto.toInt()
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
     }
